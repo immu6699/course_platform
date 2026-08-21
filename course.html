@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
+
+<title>Courses - Course Platform</title>
+
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+
+<nav class="navbar">
+
+    <div class="logo">
+        Course Platform
+    </div>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            Home
+        </a>
+
+        <a href="course.html">
+            Courses
+        </a>
+
+        <a href="#cart">Cart (<span id="cartCount">0</span>)</a>
+
+        <a
+            href="admin.html"
+            id="adminLink"
+            style="display:none;"
+        >
+            Admin
+        </a>
+
+        <a href="#" onclick="logout()">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+<aside class="cart-panel" id="cart">
+    <h2>Your Cart</h2>
+    <ul id="cartItems"></ul>
+    <p class="cart-total"><strong>Total:</strong> <span id="cartTotal">₹0</span></p>
+    <button onclick="checkoutCart()">Checkout</button>
+    <button class="secondary-button" onclick="clearCart()">Clear Cart</button>
+</aside>
+
+<div class="checkout-modal" id="checkoutModal">
+    <form class="checkout-form" onsubmit="placeOrder(event)">
+        <button type="button" class="close-checkout" onclick="closeCheckout()" aria-label="Close">&times;</button>
+        <h2>Delivery Details</h2>
+        <p>Enter the details needed to complete your order.</p>
+        <div class="form-grid">
+            <input name="full_name" placeholder="Full name" autocomplete="name" required>
+            <input name="phone" type="tel" placeholder="Phone number" autocomplete="tel" pattern="[0-9+() -]{7,20}" required>
+            <input name="address" placeholder="House number and street address" autocomplete="street-address" required>
+            <input name="city" placeholder="City" autocomplete="address-level2" required>
+            <input name="state" placeholder="State / province" autocomplete="address-level1" required>
+            <input name="postal_code" placeholder="Postal / ZIP code" autocomplete="postal-code" required>
+            <input name="country" placeholder="Country" autocomplete="country-name" value="India" required>
+        </div>
+        <label class="payment-label" for="payment_method">Payment method</label>
+        <select name="payment_method" id="payment_method" required>
+            <option value="" disabled selected>Select payment method</option>
+            <option value="UPI">UPI</option>
+            <option value="Cash on Delivery">Cash on Delivery</option>
+            <option value="Card">Credit / Debit Card</option>
+        </select>
+        <div class="checkout-actions">
+            <button type="button" class="secondary-button" onclick="closeCheckout()">Cancel</button>
+            <button type="submit">Place Order</button>
+        </div>
+    </form>
+</div>
+
+
+<!-- COURSES -->
+
+<section class="courses-section">
+
+    <h1>Available Courses</h1>
+
+    <p class="section-subtitle">
+        Choose a course and start learning
+    </p>
+
+
+    <div class="courses-container">
+
+
+        <!-- COURSE 1 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                💻
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    Full Stack Web Development
+                </h2>
+
+                <p>
+                    Learn HTML, CSS, JavaScript,
+                    Node.js, React and databases.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Imran
+                </p>
+
+                <p class="price">
+                    ₹4,999
+                </p>
+
+                <button
+                    onclick="enrollCourse('Full Stack Web Development')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 2 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                🔐
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    Cyber Security Fundamentals
+                </h2>
+
+                <p>
+                    Learn cybersecurity concepts,
+                    threats, vulnerabilities and defense.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Rahul
+                </p>
+
+                <p class="price">
+                    ₹3,999
+                </p>
+
+                <button
+                    onclick="enrollCourse('Cyber Security Fundamentals')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 3 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                🐍
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    Python Programming
+                </h2>
+
+                <p>
+                    Learn Python from beginner
+                    level to advanced programming.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Arjun
+                </p>
+
+                <p class="price">
+                    ₹2,999
+                </p>
+
+                <button
+                    onclick="enrollCourse('Python Programming')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 4 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                ☁️
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    AWS Cloud Computing
+                </h2>
+
+                <p>
+                    Learn AWS services, EC2, S3,
+                    IAM, VPC and cloud fundamentals.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Ahmed
+                </p>
+
+                <p class="price">
+                    ₹5,999
+                </p>
+
+                <button
+                    onclick="enrollCourse('AWS Cloud Computing')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 5 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                ⚛️
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    React.js Development
+                </h2>
+
+                <p>
+                    Build modern and responsive
+                    web applications using React.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Vikram
+                </p>
+
+                <p class="price">
+                    ₹3,499
+                </p>
+
+                <button
+                    onclick="enrollCourse('React.js Development')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 6 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                🌐
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    JavaScript Masterclass
+                </h2>
+
+                <p>
+                    Master JavaScript, DOM,
+                    APIs, async programming and ES6.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Sameer
+                </p>
+
+                <p class="price">
+                    ₹2,499
+                </p>
+
+                <button
+                    onclick="enrollCourse('JavaScript Masterclass')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 7 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                🛡️
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    Ethical Hacking
+                </h2>
+
+                <p>
+                    Learn ethical hacking concepts,
+                    reconnaissance and security testing.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Imran
+                </p>
+
+                <p class="price">
+                    ₹4,499
+                </p>
+
+                <button
+                    onclick="enrollCourse('Ethical Hacking')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 8 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                📊
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    SQL & Database Management
+                </h2>
+
+                <p>
+                    Learn SQL, MySQL, database design,
+                    queries and database management.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Kiran
+                </p>
+
+                <p class="price">
+                    ₹1,999
+                </p>
+
+                <button
+                    onclick="enrollCourse('SQL & Database Management')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 9 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                🐧
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    Linux Administration
+                </h2>
+
+                <p>
+                    Learn Linux commands, users,
+                    permissions, services and administration.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Mohammed
+                </p>
+
+                <p class="price">
+                    ₹2,499
+                </p>
+
+                <button
+                    onclick="enrollCourse('Linux Administration')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 10 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                🔎
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    Web Application Security
+                </h2>
+
+                <p>
+                    Learn OWASP concepts,
+                    web vulnerabilities and secure coding.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Imran
+                </p>
+
+                <p class="price">
+                    ₹4,999
+                </p>
+
+                <button
+                    onclick="enrollCourse('Web Application Security')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 11 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                📡
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    Networking & CCNA
+                </h2>
+
+                <p>
+                    Learn networking fundamentals,
+                    routing, switching and CCNA concepts.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Naveen
+                </p>
+
+                <p class="price">
+                    ₹3,499
+                </p>
+
+                <button
+                    onclick="enrollCourse('Networking & CCNA')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSE 12 -->
+
+        <div class="course-card">
+
+            <div class="course-image">
+                🤖
+            </div>
+
+            <div class="course-content">
+
+                <h2>
+                    AI & Machine Learning
+                </h2>
+
+                <p>
+                    Learn AI fundamentals, Python,
+                    machine learning and data concepts.
+                </p>
+
+                <p>
+                    <strong>
+                        Instructor:
+                    </strong>
+                    Priya
+                </p>
+
+                <p class="price">
+                    ₹6,999
+                </p>
+
+                <button
+                    onclick="enrollCourse('AI & Machine Learning')"
+                >
+                    Enroll Now
+                </button>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

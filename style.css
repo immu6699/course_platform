@@ -1,0 +1,495 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: #f4f7fb;
+    color: #222;
+    min-height: 100vh;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+    width: 100%;
+    background: #1e3a8a;
+    color: white;
+    padding: 18px 7%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: bold;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+}
+
+.nav-links a:hover {
+    text-decoration: underline;
+}
+
+
+/* =========================
+   MAIN CONTAINER
+========================= */
+
+.container {
+    width: 90%;
+    max-width: 450px;
+    margin: 70px auto;
+    background: white;
+    padding: 35px;
+    border-radius: 12px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.1);
+}
+
+.container h2 {
+    text-align: center;
+    margin-bottom: 25px;
+    color: #1e3a8a;
+}
+
+
+/* =========================
+   INPUTS
+========================= */
+
+input,
+textarea,
+select {
+    width: 100%;
+    padding: 13px;
+    margin-bottom: 16px;
+    border: 1px solid #d1d5db;
+    border-radius: 7px;
+    font-size: 15px;
+    outline: none;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+    border-color: #2563eb;
+}
+
+textarea {
+    min-height: 120px;
+    resize: vertical;
+}
+
+
+/* =========================
+   BUTTON
+========================= */
+
+button {
+    width: 100%;
+    padding: 13px;
+    background: #2563eb;
+    color: white;
+    border: none;
+    border-radius: 7px;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================
+   LINKS
+========================= */
+
+.container p {
+    text-align: center;
+    margin-top: 18px;
+    color: #555;
+}
+
+.container a {
+    color: #2563eb;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+
+/* =========================
+   HOME PAGE
+========================= */
+
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h1 {
+    font-size: 45px;
+    color: #1e3a8a;
+    margin-bottom: 20px;
+}
+
+.hero p {
+    font-size: 19px;
+    color: #555;
+    margin-bottom: 30px;
+}
+
+.hero button {
+    width: auto;
+    padding: 14px 30px;
+}
+
+
+/* =========================
+   COURSES SECTION
+========================= */
+
+.courses-section {
+    width: 90%;
+    max-width: 1200px;
+    margin: 50px auto;
+}
+
+.courses-section h1 {
+    text-align: center;
+    font-size: 36px;
+    color: #1e3a8a;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    margin-top: 10px;
+    margin-bottom: 35px;
+}
+
+
+/* =========================
+   COURSE GRID
+========================= */
+
+.courses-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 25px;
+}
+
+
+/* =========================
+   COURSE CARD
+========================= */
+
+.course-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 18px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+
+/* =========================
+   COURSE IMAGE
+========================= */
+
+.course-image {
+    height: 180px;
+    background: #e8eefc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 55px;
+    overflow: hidden;
+}
+
+.course-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+
+/* =========================
+   COURSE CONTENT
+========================= */
+
+.course-content {
+    padding: 22px;
+}
+
+.course-content h2 {
+    font-size: 21px;
+    color: #1e3a8a;
+    margin-bottom: 12px;
+}
+
+.course-content p {
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 10px;
+}
+
+.course-content button {
+    margin-top: 10px;
+}
+
+.cart-panel {
+    width: 90%;
+    max-width: 1200px;
+    margin: 24px auto 0;
+    padding: 20px;
+    background: #fff;
+    border: 1px solid #dbe3f0;
+    border-radius: 10px;
+}
+
+.cart-panel h2 {
+    color: #1e3a8a;
+    margin-bottom: 12px;
+}
+
+#cartItems {
+    list-style: none;
+    margin-bottom: 15px;
+}
+
+#cartItems li {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 10px 0;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+#cartItems li span {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.remove-cart,
+.cart-panel .secondary-button {
+    width: auto;
+    padding: 8px 12px;
+    background: #64748b;
+    font-size: 13px;
+}
+
+.cart-panel > button {
+    width: auto;
+    margin-right: 8px;
+}
+
+.cart-total {
+    margin-bottom: 14px;
+    color: #1e3a8a;
+}
+
+.empty-cart {
+    color: #64748b;
+}
+
+.checkout-modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 10;
+    padding: 24px;
+    background: rgba(15, 23, 42, 0.55);
+    overflow-y: auto;
+}
+
+.checkout-modal.is-open {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.checkout-form {
+    position: relative;
+    width: min(100%, 680px);
+    padding: 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 15px 50px rgba(15, 23, 42, 0.25);
+}
+
+.checkout-form h2 {
+    margin-bottom: 8px;
+    color: #1e3a8a;
+}
+
+.checkout-form > p {
+    margin-bottom: 20px;
+    color: #64748b;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0 16px;
+}
+
+.checkout-form textarea {
+    min-height: 90px;
+}
+
+.payment-label {
+    display: block;
+    margin-bottom: 6px;
+    color: #334155;
+    font-weight: bold;
+}
+
+.checkout-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.checkout-actions button,
+.close-checkout {
+    width: auto;
+}
+
+.checkout-actions .secondary-button {
+    background: #64748b;
+}
+
+.close-checkout {
+    position: absolute;
+    top: 12px;
+    right: 16px;
+    padding: 4px 10px;
+    background: transparent;
+    color: #475569;
+    font-size: 25px;
+}
+
+@media (max-width: 800px) {
+    .courses-container {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        align-items: flex-start;
+        gap: 15px;
+        flex-direction: column;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.price {
+    color: #16a34a !important;
+    font-size: 22px;
+    font-weight: bold;
+}
+
+
+/* =========================
+   ADMIN PAGE
+========================= */
+
+#courseForm {
+    width: 100%;
+}
+
+#courseForm input,
+#courseForm textarea {
+    margin-bottom: 18px;
+}
+
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+    background: #1e3a8a;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 900px) {
+
+    .courses-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+
+    .hero {
+        padding: 60px 20px;
+    }
+
+    .hero h1 {
+        font-size: 32px;
+    }
+
+    .courses-container {
+        grid-template-columns: 1fr;
+    }
+
+    .container {
+        margin: 40px auto;
+        padding: 25px;
+    }
+
+}

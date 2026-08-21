@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin - Course Platform</title>
+
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<nav class="navbar">
+
+    <div class="logo">
+        Course Platform
+    </div>
+
+    <div class="nav-links">
+
+        <a href="course.html">
+            Courses
+        </a>
+
+        <a href="#" onclick="logout()">
+            Logout
+        </a>
+
+    </div>
+
+</nav>
+
+
+<div class="container">
+
+    <h2>
+        Admin - Upload Course
+    </h2>
+
+
+    <form
+        id="courseForm"
+        onsubmit="event.preventDefault(); uploadCourse();"
+    >
+
+        <input
+            type="text"
+            name="title"
+            placeholder="Course Title"
+            required
+        >
+
+
+        <textarea
+            name="description"
+            placeholder="Course Description"
+            required
+        ></textarea>
+
+
+        <input
+            type="number"
+            name="price"
+            placeholder="Price"
+            step="0.01"
+            required
+        >
+
+
+        <input
+            type="text"
+            name="instructor"
+            placeholder="Instructor"
+            required
+        >
+
+
+        <input
+            type="file"
+            name="image"
+            accept="image/*"
+        >
+
+
+        <button type="submit">
+            Upload Course
+        </button>
+
+    </form>
+
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>
